@@ -1,3 +1,4 @@
+# main.py
 from fastapi import FastAPI
 from routes.health_check import router as health_router
 from routes.chat_routes import router as chat_router
@@ -5,7 +6,7 @@ from routes.meeting_routes import router as meeting_router
 from routes.naver_news_routes import router as naver_news_router
 from routes.news_routes import router as news_router
 from routes.langchain_chat_routes import router as langchain_router
-
+from routes.langchain_chatstream_routes import router as langchain_stream_router
 
 app = FastAPI(title="RAG Multi-Agent Backend")
 app.include_router(health_router, prefix="/api")
@@ -14,6 +15,7 @@ app.include_router(meeting_router, prefix="/api")
 app.include_router(naver_news_router, prefix="/api")
 app.include_router(news_router, prefix="/api")
 app.include_router(langchain_router, prefix="/api")
+app.include_router(langchain_stream_router, prefix="/api")
 
 
 @app.get("/")

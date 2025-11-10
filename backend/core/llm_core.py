@@ -1,3 +1,4 @@
+# backend/core/llm_core
 import os
 from openai import OpenAI
 from core.env_loader import load_dotenv

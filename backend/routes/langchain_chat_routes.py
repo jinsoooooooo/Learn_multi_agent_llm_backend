@@ -1,22 +1,21 @@
 # backend/routes/langchain_chat_routes.py
 from fastapi import APIRouter, Request
-from fastapi.responses import StreamingResponse
 from agents.langchain_chat_agent import LangchainChatAgent
-import asyncio
 
-router = APIRouter(prefix="/chat/langchain", tags=["Agent API"])
-agent = LangchainChatAgent()
+router = APIRouter(tags=["LangChain Chat"])
 
-@router.post("/")
-async def chat_stream(request: Request):
-    body = await request.json()
-    user_input = body.get("message", "")
+@router.post("/langchain/chat")
+async def chat_with_memory(request: Request):
+    """
+    LangChain 기반 대화 API
+    - user_id 별로 Redis에 대화 이력 저장
+    - 이전 대화를 자동으로 참고
+    """
+    data = await request.json()
+    user_id = data.get("user_id", "guest")
+    message = data.get("message", "")
 
-    async def event_generator():
-        answer = agent.chat(user_input)
-        for ch in answer:
-            yield f"data: {ch}\n\n"
-            await asyncio.sleep(0.02)
-        yield "data: [END]\n\n"
+    agent = LangchainChatAgent(user_id=user_id)
+    response = agent.handle(message)
 
-    return StreamingResponse(event_generator(), media_type="text/event-stream")
+    return {"user_id": user_id, "reply": response}
