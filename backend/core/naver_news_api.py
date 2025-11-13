@@ -16,7 +16,7 @@ CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET") # "Y1xqeZZfF4"
 def search_naver_news(keyword, display=5, sort="sim"):
     base_url = "https://openapi.naver.com/v1/search/news.json"
     query = urllib.parse.quote(keyword)
-    url = f"{base_url}?query={query}&display={display}&start=1&sort={sort}"
+    url = f"{base_url}?query={query}&display={display}&start=100&sort={sort}"
 
     headers = {
         "X-Naver-Client-Id": CLIENT_ID,
