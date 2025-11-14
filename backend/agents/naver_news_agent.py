@@ -12,9 +12,10 @@ class NaverNewsAgent(BaseAgent):
 
     def handle(self, data) -> str:
         """네이버 API를 통해 검색 결과 회신"""
-        user_input = data.get("message", "")
-        user_keywords = data.get("keywords", "")
-        user_name = data.get("user_name", "")
+        user_input = data.message
+        keyword_list = data.keywords
+        user_keywords = ",".join(keyword_list)
+        user_id = data.user_id
     
         """네이버 API를 통해 검색 결과 회신"""
         fetch_news = search_naver_news(user_keywords,3) if user_keywords else "입력한 키워드가 없습니다."
