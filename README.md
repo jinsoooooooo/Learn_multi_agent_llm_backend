@@ -1,4 +1,4 @@
-## RAG Multi-Agent 프로젝트
+## Multi-Agent LLM & RAG 프로젝트
 
 **프로젝트 설명:**
 
@@ -67,8 +67,9 @@ uvicorn backend.main:app --reload`
 *   `api/chat`: 챗봇 Agent API
 *   `api/metting`: 회의실 Agent API
 
+---
 
-**Backend API 호출 시쿼스다이어긂**
+**Backend LLM API 호출 시퀀스다이어그램**
 
 ```mermaid
 sequenceDiagram
@@ -146,6 +147,9 @@ sequenceDiagram
     deactivate Routes
 
 ```
+
+---
+
 
 **기여 방법:**
 
