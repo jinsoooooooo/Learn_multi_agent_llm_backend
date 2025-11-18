@@ -7,4 +7,5 @@ langchain
 langchain-core
 langchain-community
 openai
-chromadb
+# chromadb
+google-genai
