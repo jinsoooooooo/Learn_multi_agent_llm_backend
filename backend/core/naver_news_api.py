@@ -2,7 +2,7 @@ import os
 import requests
 import urllib.parse
 
-from core.env_loader import load_dotenv
+from backend.core.env_loader import load_dotenv
 
 # .env 파일 로드
 load_dotenv()

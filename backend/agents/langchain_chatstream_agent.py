@@ -2,13 +2,13 @@
 import asyncio
 from queue import Queue
 from threading import Thread
-from agents.base_agent import BaseAgent
+from backend.agents.base_agent import BaseAgent
 from langchain_openai import ChatOpenAI
 from langchain_classic.callbacks.base import BaseCallbackHandler
 from langchain_classic.chains import ConversationChain
 from langchain_classic.memory import ConversationBufferMemory
 from langchain_community.chat_message_histories import RedisChatMessageHistory
-from core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
+from backend.core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
 
 class QueueCallbackHandler(BaseCallbackHandler):
     """LLM 응답을 Queue에 저장하는 콜백 핸들러"""

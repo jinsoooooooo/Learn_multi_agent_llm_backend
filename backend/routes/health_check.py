@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from core.redis_cache import get_redis_connection
+from backend.core.redis_cache import get_redis_connection
 
 router = APIRouter()
 

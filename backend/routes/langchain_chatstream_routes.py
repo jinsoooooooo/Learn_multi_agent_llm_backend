@@ -1,7 +1,7 @@
 # backend\routes\langchain_chatstream_routes.py
 from fastapi import APIRouter, Request
 from fastapi.responses import StreamingResponse
-from agents.langchain_chatstream_agent import LangchainChatStreamAgent
+from backend.agents.langchain_chatstream_agent import LangchainChatStreamAgent
 from pydantic import BaseModel
 
 router = APIRouter(tags=["LangChain Chat"])

@@ -1,5 +1,5 @@
 # backend/agnet/chat_agent.py
-from agents.base_agent import BaseAgent
+from backend.agents.base_agent import BaseAgent
 import uuid
 
 class ChatAgent(BaseAgent):

@@ -1,6 +1,6 @@
 # backend/agents/langchain_chat_agent.py
-from agents.base_agent import BaseAgent
-from core.chat_memory import get_conversation_chain
+from backend.agents.base_agent import BaseAgent
+from backend.core.chat_memory import get_conversation_chain
 
 class LangchainChatAgent(BaseAgent):
     """

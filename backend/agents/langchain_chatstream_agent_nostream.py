@@ -1,11 +1,11 @@
-from agents.base_agent import BaseAgent
-from core.chat_memory import get_conversation_chain
+from backend.agents.base_agent import BaseAgent
+from backend.core.chat_memory import get_conversation_chain
+from backend.core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
 from langchain_openai import ChatOpenAI
 from langchain_classic.callbacks.base import BaseCallbackHandler
 from langchain_classic.chains import ConversationChain
 from langchain_classic.memory import ConversationBufferMemory
 from langchain_community.chat_message_histories import RedisChatMessageHistory
-from core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
 
 class StreamCallbackHandler(BaseCallbackHandler):
     """LLM 응답을 스트리밍으로 전송하는 콜백 핸들러"""

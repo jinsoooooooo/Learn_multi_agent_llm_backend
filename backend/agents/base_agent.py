@@ -1,6 +1,6 @@
 # backend\agent\base_agent.py
 from abc import ABC, abstractmethod
-from core.llm_core import call_llm
+from backend.core.llm_core import call_llm
 
 class BaseAgent(ABC):
     """모든 에이전트의 공통 기반 클래스"""

@@ -1,7 +1,7 @@
 # backend/routes/meeting_routes.py
 from typing import Optional
 from fastapi import APIRouter, Request
-from agents.meeting_agent import MeetingAgent
+from backend.agents.meeting_agent import MeetingAgent
 from pydantic import BaseModel
 
 router = APIRouter(tags=["Agent API"])

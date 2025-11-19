@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request
-from agents.news_agent import NewsAgent
+from backend.agents.news_agent import NewsAgent
 
 router = APIRouter(tags=["Agent API"])
 agent = NewsAgent()

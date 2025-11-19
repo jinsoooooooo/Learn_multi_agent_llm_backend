@@ -2,7 +2,7 @@
 from typing import Optional
 from fastapi import APIRouter, Request
 from pydantic import BaseModel
-from agents.chat_agent import ChatAgent
+from backend.agents.chat_agent import ChatAgent
 
 router = APIRouter(tags=["Agent API"])
 agent = ChatAgent()

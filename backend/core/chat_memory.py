@@ -3,7 +3,7 @@ from langchain_classic.chains import ConversationChain
 from langchain_classic.memory import ConversationBufferMemory
 from langchain_community.chat_message_histories import RedisChatMessageHistory
 from langchain_openai import ChatOpenAI
-from core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
+from backend.core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
 
 
 def get_conversation_chain(user_id: str):

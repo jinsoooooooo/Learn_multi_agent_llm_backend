@@ -1,7 +1,7 @@
 # backend/agnet/stream_sample_agent.py
 import asyncio
 from typing import AsyncIterator, Iterator
-from agents.base_agent import BaseAgent
+from backend.agents.base_agent import BaseAgent
 
 class StreamSampleAgent(BaseAgent):
     def __init__(self):

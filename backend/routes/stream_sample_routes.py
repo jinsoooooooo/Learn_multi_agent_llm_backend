@@ -2,7 +2,7 @@
 from typing import Optional
 from fastapi import APIRouter, Request
 from fastapi.responses import StreamingResponse
-from agents.stream_sample_agent import StreamSampleAgent
+from backend.agents.stream_sample_agent import StreamSampleAgent
 from pydantic import BaseModel
 
 

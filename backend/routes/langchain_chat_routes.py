@@ -1,6 +1,6 @@
 # backend/routes/langchain_chat_routes.py
 from fastapi import APIRouter, Request
-from agents.langchain_chat_agent import LangchainChatAgent
+from backend.agents.langchain_chat_agent import LangchainChatAgent
 from pydantic import BaseModel
 
 router = APIRouter(tags=["LangChain Chat"])

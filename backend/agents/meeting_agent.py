@@ -1,6 +1,6 @@
 import uuid
-from agents.base_agent import BaseAgent
-from core.onspace_api import get_meeting_rooms, reserve_meeting_room, cancel_meeting_room
+from backend.agents.base_agent import BaseAgent
+from backend.core.onspace_api import get_meeting_rooms, reserve_meeting_room, cancel_meeting_room
 
 class MeetingAgent(BaseAgent):
     def __init__(self):

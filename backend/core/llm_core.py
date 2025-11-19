@@ -4,7 +4,7 @@ from typing import Dict, List, Optional
 from openai import OpenAI
 from google import genai
 from google.genai import types as genai_types
-from core.env_loader import load_dotenv
+from backend.core.env_loader import load_dotenv
 
 # .env 파일 로드
 load_dotenv()

@@ -1,5 +1,5 @@
-from agents.base_agent import BaseAgent
-from core.naver_news_api import search_naver_news
+from backend.agents.base_agent import BaseAgent
+from backend.core.naver_news_api import search_naver_news
 
 class NaverNewsAgent(BaseAgent):
     def __init__(self):

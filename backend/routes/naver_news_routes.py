@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import APIRouter, Request
-from agents.naver_news_agent import NaverNewsAgent
+from backend.agents.naver_news_agent import NaverNewsAgent
 from pydantic import BaseModel
 
 router = APIRouter(tags=["Agent API"])
