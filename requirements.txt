@@ -11,3 +11,7 @@ openai
 google-genai
 pytest-mock
 pytest
+# Postgresql DB 연결
+sqlalchemy
+psycopg2-binary
+pydantic-settings
