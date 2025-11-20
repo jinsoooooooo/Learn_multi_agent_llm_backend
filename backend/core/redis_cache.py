@@ -1,7 +1,12 @@
 #  backend/core/redis_cache.py
 import redis
 import json
-from backend.core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
+# from backend.core.env_loader import REDIS_HOST, REDIS_PORT, REDIS_DB
+from backend.core.config import settings
+
+REDIS_HOST=settings.REDIS_HOST
+REDIS_PORT=settings.REDIS_PORT
+REDIS_DB=settings.REDIS_DB
 
 def get_redis_connection():
     try:

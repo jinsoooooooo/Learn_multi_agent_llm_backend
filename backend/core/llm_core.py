@@ -4,20 +4,29 @@ from typing import Dict, List, Optional
 from openai import OpenAI
 from google import genai
 from google.genai import types as genai_types
-from backend.core.env_loader import load_dotenv
+# from backend.core.env_loader import load_dotenv
+# env_loader 대신에 pydantic_settings로 전환
+from backend.core.config import settings
 
 # .env 파일 로드
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-default_model = os.getenv("DEFAULT_LLM_MODEL", "gpt-4o-mini")
+# env_loader 대신에 pydantic_settings로 전환
+#load_dotenv()
+api_key = settings.OPENAI_API_KEY
+default_model = settings.DEFAULT_LLM_MODEL
 
-gemini_api_key=os.getenv("GEMINI_API_KEY")
-gemini_default_model=os.getenv("GEMINI_DEFAULT_MODEL", "gemini-2.0-flash")
+gemini_api_key=settings.GEMINI_API_KEY 
+gemini_default_model=settings.GEMINI_DEFAULT_MODEL
 
 
 client = OpenAI(api_key=api_key)
 clientGemini = genai.Client(api_key=gemini_api_key)
 
+
+def call_gemini(model, prompt, chat_history, message):
+    return None
+
+def call_gpt(model, prompt, chat_history, message, temperature):
+    return None
 
 def call_llm( model: str , prompt: str, message: str, temperature: float = 0.3, chat_history: List[Dict] = None ):
     """
@@ -32,7 +41,7 @@ def call_llm( model: str , prompt: str, message: str, temperature: float = 0.3, 
         - str
     """
     print( 
-        f'[llm_core.py] > call_llm( model: str , prompt: str, message: str, temperature: float = 0.3, chat_history: List[Dict] = None )  \n' 
+        f'[llm_core.py] >>>>>> call_llm( model, prompt, message, temperature, chat_history)  \n' 
         f'  - model: {model} \n'
         f'  - prompt: {prompt} \n'
         f'  - message: {message} \n'
@@ -42,12 +51,11 @@ def call_llm( model: str , prompt: str, message: str, temperature: float = 0.3, 
 
     model = model or default_model
 
-    # history <- fetch chat history with seesion_id 
-
-    print(f'{type(message)}')
 
     # gemini 계열 모델의 경우 
     if model.startswith('gemini'):
+        # refactoring 예정 gemini 함수 분리
+        # return call_gemini(model, prompt, chat_history, message)
 
         # 대화 이력(history)가 있다면 꺼내서 gooogle api 포멧에 맞게 변환 
         gemini_contents = []
@@ -110,4 +118,8 @@ def call_llm( model: str , prompt: str, message: str, temperature: float = 0.3, 
         messages=gpt_messages,
         temperature=temperature,
     )
-    return response.choices[0].message.content.strip()
+
+
+    return response.choices[0].message.content
+    # refactoring 예정 gpt 호출 함수 분리
+    # return call_gpt(model, prompt, chat_history, message, temperature)
