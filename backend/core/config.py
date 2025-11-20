@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     # Google Geminai 설정
     GEMINI_API_KEY: str
-    GEMINI_DEFAULT_MODEL: str="gemini-2.0-flash"
+    GEMINI_DEFAULT_MODEL: str="gemini-2.0-flash-lite"
 
     # FastAPI settings
     APP_NAME:str 
